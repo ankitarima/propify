@@ -1,0 +1,126 @@
+<main>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <h4 class="section-title m-0"><i class="pi pi-user customer-icon"></i>Jone Doe</h4>
+    </div>
+    <div class="col-md-6 text-end">
+      <button pButton pRipple type="button" label="Back" icon="pi pi-arrow-left" class="p-button-sm" iconPos="left" routerLink="/customers">
+      </button>
+    </div>
+  </div>
+  <div class="row py-3 card">
+    <div class="col-md-6">
+      <div class="details-container">
+        <p>
+          <span class="title">Full Name: </span>
+          <span class="detail">Mr. Jone Doe</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="details-container">
+        <p>
+          <span class="title">Primary Conatct Number: </span>
+          <span class="detail">+91 941316962</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="details-container">
+        <p>
+          <span class="title">Primary Email: </span>
+          <span class="detail">example@example.com</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="details-container">
+        <p>
+          <span class="title">Secondary Conatct Number: </span>
+          <span class="detail">+91 941316962</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="details-container">
+        <p>
+          <span class="title">Secondary Email: </span>
+          <span class="detail">example@example.com</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p-accordion>
+      <p-accordionTab header="Header 1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugit, aspernatur ratione cum illum pariatur perferendis, porro, ex doloremque natus deleniti alias quam unde et ducimus ipsum iure quos. Deleniti.
+        <div class="payments-tabs">
+          <p-tabView>
+            <p-tabPanel header="Recent Payments">
+              <ng-template pTemplate="body">
+                <p-table [value]="products" styleClass="p-datatable-sm" [scrollable]="true" responsiveLayout="scroll" scrollHeight="300px">
+                  <ng-template pTemplate="header">
+                      <tr>
+                          <th>Code</th>
+                          <th>Name</th>
+                          <th>Date</th>
+                          <th>Category</th>
+                          <th>Quantity</th>
+                          <th></th>
+                      </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-product>
+                      <tr>
+                          <td>{{product.code}}</td>
+                          <td>{{product.name}}</td>
+                          <td>{{date | date:'full'}}</td>
+                          <td>{{product.category}}</td>
+                          <td>{{product.quantity}}</td>
+                          <td>
+                            <span class="print-btn"><i class="pi pi-print"></i> receipt</span>
+                            <span> | </span>
+                            <span class="delete-btn"><i class="pi pi-trash"></i> delete</span>
+                          </td>
+                      </tr>
+                  </ng-template>
+                </p-table>
+              </ng-template>
+            </p-tabPanel>
+            <p-tabPanel header=" Payment Shedule">
+              <ng-template pTemplate="body">
+                <p-table [value]="products" styleClass="p-datatable-sm" [scrollable]="true" responsiveLayout="scroll" scrollHeight="300px">
+                  <ng-template pTemplate="header">
+                      <tr>
+                          <th>Code</th>
+                          <th>Name</th>
+                          <th>Category</th>
+                          <th>Quantity</th>
+                          <th></th>
+                      </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-product>
+                      <tr>
+                          <td>{{product.code}}</td>
+                          <td>{{product.name}}</td>
+                          <td>{{product.category}}</td>
+                          <td>{{product.quantity}}</td>
+                          <td>
+                            <span class="add-payment-btn"><i class="pi pi-add"></i>Add payment details</span>
+                          </td>
+                      </tr>
+                  </ng-template>
+                </p-table>
+              </ng-template>
+            </p-tabPanel>
+        </p-tabView>
+        </div>
+      </p-accordionTab>
+      <p-accordionTab header="Header 2">
+          Content 2
+      </p-accordionTab>
+      <p-accordionTab header="Header 3">
+          Content 3
+      </p-accordionTab>
+  </p-accordion>
+  </div>
+</main>

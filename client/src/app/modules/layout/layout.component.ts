@@ -26,7 +26,7 @@ export class LayoutComponent implements OnInit {
       },
       {
         label: 'Customers',
-        routerLink: ['/']
+        routerLink: ['/customers']
       },
       {
         label: 'Billings',

@@ -15,6 +15,11 @@ const routes: Routes = [
     loadChildren:()=> import('./modules/features/properties/properties.module').then(m=>m.PropertiesModule),
   },
   {
+    path: 'customers',
+    component: LayoutComponent,
+    loadChildren:()=> import('./modules/features/customers/customers.module').then(m=>m.CustomersModule),
+  },
+  {
     path: 'login',
     component: LoginComponent
   },

@@ -34,6 +34,7 @@ import { ChartModule } from 'primeng/chart';
 import {FileUploadModule} from 'primeng/fileupload';
 import {MessagesModule} from 'primeng/messages';
 import {PaginatorModule} from 'primeng/paginator';
+import {TabViewModule} from 'primeng/tabview';
 
 @NgModule({
   declarations: [],
@@ -73,7 +74,8 @@ import {PaginatorModule} from 'primeng/paginator';
     ChartModule,
     FileUploadModule,
     MessagesModule,
-    PaginatorModule
+    PaginatorModule,
+    TabViewModule
   ],
 })
 export class SharedImportsModule {}

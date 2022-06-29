@@ -166,3 +166,9 @@
   color: aquamarine;
 }
 
+/* Customer Details  */
+.payments-tabs .p-tabview .p-tabview-panels{
+  height: 330px;
+  overflow-y: auto;
+}
+
