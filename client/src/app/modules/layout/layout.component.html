@@ -1,0 +1,31 @@
+<nav class="navbar sticky-top top-nav-bar">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center project-switcher">
+      <a class="navbar-brand" routerLink="/">Propify</a>
+      <p-dropdown [options]="[{name:'Long Project Name'},{name: 'arima'}]" class="p-inputtext-sm" optionLabel="name" [filter]="true">
+    </p-dropdown>
+    </div>
+    <div class="d-flex">
+      <p-menu #menu [popup]="true" [model]="userNavItems"></p-menu>
+      <p-menubar [model]="mainNavItems">
+        <ng-template  pTemplate="end">
+          <div style="cursor: pointer; margin-left: 20px;">
+            <p-avatar label="U" size="small" shape="circle" (click)="menu.toggle($event)"></p-avatar>
+          </div>
+        </ng-template>
+      </p-menubar>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-3 pb-5 mb-3">
+  <router-outlet></router-outlet>
+</div>
+
+<nav class="navbar footer">
+  <div class="container align-center">
+    <div class="w-100 text-center">
+      <p class="p-0 m-0">@copyright text</p>
+    </div>
+  </div>
+</nav>

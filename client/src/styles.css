@@ -1,0 +1,168 @@
+/* Header Nav Bar  */
+.top-nav-bar{
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  padding: 5px 20px;
+  background: white;
+  z-index: 2;
+}
+.top-nav-bar .p-menubar {
+  padding: 5px;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.8);
+  border: 0px;
+  border-radius: 0px;
+}
+.top-nav-bar .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
+  background: transparent;
+}
+
+.top-nav-bar .p-menubar .p-menuitem .p-menuitem-link:focus {
+  background: transparent;
+}
+
+/* Footer  */
+.footer{
+  position: fixed;
+  overflow: hidden;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid rgba(0,0,0,.125);
+  z-index: 2;
+  background-color: white;
+}
+
+/* Button  */
+.p-button{
+  border-radius: 0px;
+  min-width: 100px;
+}
+
+/* Project Switcher  */
+.project-switcher .p-dropdown{
+  border-radius: 0px !important;
+  border: none;
+  /* border-bottom: 1px solid rgba(0,0,0,.125); */
+}
+
+/* Form Input  */
+.form-control{
+  border: none;
+}
+.p-inputtext, .p-dropdown, .p-inputgroup-addon{
+  border-radius: 0px !important;
+}
+
+.p-inputtext.p-inputtext-sm,
+.p-inputtext-sm .p-inputtext,
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item
+{
+  padding: 5px 10px;
+}
+
+/* Input Group  */
+
+.input-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0px;
+}
+.checkbox-group{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  width: 60%;
+}
+
+.checkbox-group p-checkbox{
+  padding-right: 10px;
+  margin-bottom: 8px;
+}
+
+.checkbox-group .p-checkbox .p-checkbox-box{
+  border: 1px solid rgba(0, 0, 0, 0.38);
+}
+.checkbox-group .p-checkbox .p-checkbox-box.p-highlight .p-checkbox-icon.pi-check:before{
+  top: 8px;
+  left: 3px;
+}
+.input-group label{
+  text-align: start;
+  font-size: 15px;
+  font-weight: 500;
+}
+.input-group .p-checkbox-label{
+  text-align: start;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.input-group .p-inputtext,.input-group .p-dropdown,.input-group .p-inputgroup-addon{
+  border-radius: 5px !important;
+}
+.input-group .p-inputtext.p-inputtext-sm,
+.input-group .p-inputtext-sm .p-inputtext,
+.input-group p-dropdown
+{
+  width: 60%;
+}
+.input-group .p-dropdown,
+.input-group .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  width: 100%;
+}
+
+
+/* File Upload Multiple With Preview  */
+.p-fileupload .p-fileupload-buttonbar .p-button{
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.p-fileupload .p-fileupload-content .p-button.p-button-icon-only{
+  padding: 0px;
+  font-size: 25px;
+  font-weight: 300;
+}
+
+/* Table Style  */
+:host ::ng-deep  .p-frozen-column {
+  font-weight: bold;
+}
+:host ::ng-deep .p-datatable-frozen-tbody {
+  font-weight: bold;
+}
+
+.table-wrapper .filter{
+  padding: 20px 0px;
+}
+.table-wrapper .sort-export .input-group .p-inputtext, .p-dropdown, .p-inputgroup-addon{
+  border-radius: 0px !important;
+}
+.table-wrapper .sort-export .p-inputtext-sm .p-inputtext,
+.table-wrapper .p-dropdown-panel .p-dropdown-items .p-dropdown-item{
+  padding: 8px 20px;
+}
+.table-wrapper .search .form-control{
+  padding: 0px;
+}
+
+.p-datatable-wrapper{
+  border:1px solid  rgba(0,0,0,.125);
+}
+
+/* Dashboard Styles  */
+.dashboard .card .content .title{
+  font-size: 18px;
+  font-weight: 400px;
+
+}
+.dashboard .card .icon .pi{
+  font-size: 34px;
+  color: aquamarine;
+}
+

@@ -1,0 +1,88 @@
+<main>
+  <div class="row">
+    <div class="col-md-6">
+      <h4 class="section-title m-0">Add a new property</h4>
+    </div>
+    <div class="col-md-6 text-end">
+      <button pButton pRipple type="button" label="Back" icon="pi pi-arrow-left" class="p-button-sm"
+            iconPos="left" routerLink="/properties">
+          </button>
+    </div>
+  </div>
+  <div class="row py-2">
+    <div class="col-md-6">
+      <div class="input-group">
+        <label for="">Property ID</label>
+        <input type="text" class="p-inputtext-sm" pInputText placeholder="ID">
+      </div>
+      <div class="input-group">
+        <label for="">Property Name</label>
+        <input type="text" class="p-inputtext-sm" pInputText placeholder="Name">
+      </div>
+      <div class="input-group">
+        <label for="">Property Type</label>
+        <p-dropdown [options]="[{type:'Builder Floor'},{type: 'Resedentail Plots'}]" class="p-inputtext-sm" optionLabel="type"></p-dropdown>
+      </div>
+      <hr>
+      <div class="input-group">
+        <label for="">Lenght</label>
+        <input type="text" class="p-inputtext-sm" pInputText placeholder="">
+      </div>
+      <div class="input-group">
+        <label for="">Width</label>
+        <input type="text" class="p-inputtext-sm" pInputText placeholder="">
+      </div>
+      <div class="input-group">
+        <label for="">Area</label>
+        <input type="text" class="p-inputtext-sm" pInputText placeholder="">
+      </div>
+      <div class="input-group">
+        <label for="">Carpet Area</label>
+        <input type="text" class="p-inputtext-sm" pInputText placeholder="ID">
+      </div>
+      <div class="input-group">
+        <label for="">Super Area</label>
+        <input type="text" class="p-inputtext-sm" pInputText placeholder="Name">
+      </div>
+      <hr>
+      <div class="input-group">
+        <label for="">BSP</label>
+        <input type="text" class="p-inputtext-sm" pInputText placeholder="">
+      </div>
+      <div class="input-group">
+        <label for="">IFMS</label>
+        <input type="text" class="p-inputtext-sm" pInputText placeholder="ID">
+      </div>
+      <div class="input-group">
+        <label for="">GST</label>
+        <input type="text" class="p-inputtext-sm" pInputText placeholder="Name">
+      </div>
+      <hr>
+      <div class="input-group">
+        <label for="">PLC</label>
+        <div class="checkbox-group">
+          <p-checkbox name="groupname" value="val1" label="Value 1"></p-checkbox>
+          <p-checkbox name="groupname" value="val2" label="Value 2"></p-checkbox>
+          <p-checkbox name="groupname" value="val3" label="Value 3"></p-checkbox>
+          <p-checkbox name="groupname" value="val4" label="Value 4"></p-checkbox>
+          <p-checkbox name="groupname" value="val5" label="Value 5"></p-checkbox>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <p>Add property images<p>
+      <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" [multiple]=true accept="image/*">
+        <ng-template pTemplate="content">
+          <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+          </ul>
+        </ng-template>
+      </p-fileUpload>
+    </div>
+    <div class="col-md-12 text-center">
+      <hr>
+      <button pButton pRipple type="button" label="Save"  class="p-button-sm" routerLink="/properties">
+          </button>
+    </div>
+  </div>
+</main>

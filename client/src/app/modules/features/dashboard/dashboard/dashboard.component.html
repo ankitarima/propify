@@ -1,0 +1,107 @@
+<main class="dashboard">
+  <section class="py-2">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of [1,2,3]">
+        <div class="card p-2 d-flex flex-row justify-content-between p-3">
+          <div class="content">
+            <h3 class="number">91</h3>
+            <p class="title">Title</p>
+          </div>
+          <div class="icon">
+            <i class="pi pi-map"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-2">
+    <div class="chart-container">
+      <p-chart type="line" [data]="data" [options]="options" height="350px"></p-chart>
+    </div>
+  </section>
+  <section class="py-3">
+    <div class="table-wrapper py-3">
+      <h5>Frozen Columns</h5>
+
+      <p-table [value]="customers" styleClass="p-datatable-sm" scrollDirection="both" [scrollable]="true"
+        scrollHeight="400px" styleClass="mt-3">
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width:200px" pFrozenColumn>Name</th>
+            <th style="width:100px">Id</th>
+            <th style="width:200px">Country</th>
+            <th style="width:200px">Date</th>
+            <th style="width:200px">Company</th>
+            <th style="width:200px">Status</th>
+            <th style="width:200px">Activity</th>
+            <th style="width:200px">Representative</th>
+            <th style="width:200px">Balance</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer>
+          <tr>
+            <td style="width:200px" pFrozenColumn>{{customer.name}}</td>
+            <td style="width:100px">{{customer.id}}</td>
+            <td style="width:200px">{{customer.country.name}}</td>
+            <td style="width:200px">{{customer.date}}</td>
+            <td style="width:200px">{{customer.company}}</td>
+            <td style="width:200px">{{customer.status}}</td>
+            <td style="width:200px">{{customer.activity}}</td>
+            <td style="width:200px">{{customer.representative.name}}</td>
+            <td style="width:200px">{{formatCurrency(customer.balance)}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </section>
+  <section class="py-3">
+    <div class="table-wrapper py-3">
+      <h5>Filter and search</h5>
+      <div class="filter d-flex flex-row justify-content-between">
+        <div class="search">
+          <div class="form-control">
+            <div class="p-inputgroup">
+              <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
+              <input type="text" pInputText class="p-inputtext-sm" placeholder="Search">
+          </div>
+          </div>
+        </div>
+        <div class="sort-export">
+          <div class="d-flex flex-row justify-content-between">
+            <p-dropdown [options]="sort" class="p-inputtext-sm" optionLabel="name"></p-dropdown>
+            <span class="px-1"></span>
+            <button pButton type="button" label="export" icon="pi pi-file-excel" class="p-button-sm" iconPos="left"></button>
+          </div>
+        </div>
+      </div>
+      <p-table [value]="customers" scrollHeight="400px" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>Country</th>
+                <th>Date</th>
+                <th>Company</th>
+                <th>Status</th>
+                <th>Activity</th>
+                <th>Representative</th>
+                <th>Balance</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer>
+            <tr>
+                <td>{{customer.name}}</td>
+                <td>{{customer.id}}</td>
+                <td>{{customer.country.name}}</td>
+                <td>{{customer.date}}</td>
+                <td>{{customer.company}}</td>
+                <td>{{customer.status}}</td>
+                <td>{{customer.activity}}</td>
+                <td>{{customer.representative.name}}</td>
+                <td>{{formatCurrency(customer.balance)}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+  </section>
+</main>
