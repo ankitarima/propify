@@ -25,6 +25,16 @@ const routes: Routes = [
     loadChildren:()=> import('./modules/features/sales/sales.module').then(m=>m.SalesModule),
   },
   {
+    path: 'leads',
+    component: LayoutComponent,
+    loadChildren:()=> import('./modules/features/leads/leads.module').then(m=>m.LeadsModule),
+  },
+  {
+    path: 'settings',
+    component: LayoutComponent,
+    loadChildren:()=> import('./modules/features/settings/settings.module').then(m=>m.SettingsModule),
+  },
+  {
     path: 'login',
     component: LoginComponent
   },

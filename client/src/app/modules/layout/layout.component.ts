@@ -34,11 +34,11 @@ export class LayoutComponent implements OnInit {
       },
       {
         label: 'Leads',
-        routerLink: ['/']
+        routerLink: ['/leads']
       },
       {
         label: 'Settings',
-        routerLink: ['/']
+        routerLink: ['/settings']
     }
     ];
     this.userNavItems = [

@@ -1,0 +1,175 @@
+<main>
+  <div class="table-wrapper">
+    <h4 class="section-title m-0 p-0">All Customers</h4>
+    <div class="filter d-flex flex-row justify-content-between">
+      <div class="search">
+        <div class="form-control">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
+            <input type="text" pInputText class="p-inputtext-sm" placeholder="Search">
+          </div>
+        </div>
+      </div>
+      <div class="sort-export">
+        <div class="d-flex flex-row justify-content-between">
+          <p-dropdown [options]="sort" class="p-inputtext-sm" optionLabel="name"></p-dropdown>
+          <span class="px-1"></span>
+          <button pButton pRipple type="button" label="Export" icon="pi pi-file-excel" class="p-button-sm"
+            iconPos="left"></button>
+          <span class="px-1"></span>
+          <button pButton pRipple type="button" label="Add New" icon="pi pi-plus" class="p-button-sm"
+            iconPos="left" routerLink="add">
+          </button>
+        </div>
+      </div>
+    </div>
+    <p-table [value]="customers" responsiveLayout="scroll"  [scrollable]="true">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Id</th>
+          <th>Country</th>
+          <th>Status</th>
+          <th>Activity</th>
+          <th>Representative</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-customer>
+        <tr>
+          <td>{{customer.name}}</td>
+          <td>{{customer.id}}</td>
+          <td>{{customer.country.name}}</td>
+          <td>{{customer.status}}</td>
+          <td>{{customer.activity}}</td>
+          <td>{{customer.representative.name}}</td>
+          <td>
+            <p-splitButton label="View" styleClass="p-button-outlined p-button-sm" (onClick)="view()" [model]="items"></p-splitButton>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-paginator [rows]="10" [totalRecords]="100" [pageLinkSize]="5"></p-paginator>
+  </div>
+</main>
+
+<!-- View Modal -->
+<p-dialog [(visible)]="detailsDisplay" [draggable]="false" [modal]="true" [blockScroll]="true" [closeOnEscape]="false"  [style]="{width: '50vw'}">
+  <ng-template pTemplate="header">
+     Details
+  </ng-template>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row">Name</th>
+        <td>Ankit Arima</td>
+      </tr>
+      <tr>
+        <th scope="row">Contact Number</th>
+        <td>+91 9999999999</td>
+      </tr>
+      <tr>
+        <th scope="row">Email</th>
+        <td>example@example.com</td>
+      </tr>
+      <tr>
+        <th scope="row">Job</th>
+        <td>Developer, Private</td>
+      </tr>
+      <tr>
+        <th scope="row">Source</th>
+        <td>Channel Partner</td>
+      </tr>
+      <tr>
+        <th scope="row">Channel Partner</th>
+        <td>Channel Partner Name</td>
+      </tr>
+      <tr>
+        <th scope="row">Associated Sales Officer</th>
+        <td>Master Arima</td>
+      </tr>
+      <tr>
+        <th scope="row">Status</th>
+        <td>
+          Follow Up
+          <span>| {{calDate | date:'fullDate'}}</span>
+          <span class="icon" (click)="changeStatus()"><i class="pi pi-pencil"></i></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="detailsDisplay=false" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+
+<!-- Status Update Modal -->
+<p-dialog [(visible)]="display" [draggable]="false" [modal]="true" [blockScroll]="true" [closeOnEscape]="false"  [style]="{width: '80vw'}">
+  <ng-template pTemplate="header">
+     Change Status
+  </ng-template>
+  <div class="p-3">
+    <div class="input-group">
+      <label for="">Status</label>
+      <p-dropdown [options]="[{type:'Follow Up'},{type: 'Close'}]"
+      class="p-inputtext-sm" placeholder="Select status" optionLabel="type">
+    </p-dropdown>
+    </div>
+    <div class="input-group">
+      <label for="">Property Preference</label>
+      <p-dropdown [options]="[{type:'Follow Up'},{type: 'Close'}]"
+      class="p-inputtext-sm" placeholder="Select status" optionLabel="type">
+    </p-dropdown>
+    </div>
+    <div class="input-group">
+      <label for="">Follow Up Date</label>
+      <p-calendar [(ngModel)]="calDate" class="p-inputtext-sm"></p-calendar>
+    </div>
+    <div class="input-group">
+      <label for="">Remarks</label>
+      <input type="text" class="p-inputtext-sm" pInputText placeholder="">
+    </div>
+    <div class="text-center">
+      <button pButton pRipple type="button" label="save"class="p-button-sm"> </button>
+    </div>
+    <hr>
+  </div>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Follow Up Date</th>
+          <th scope="col">Property Preference</th>
+          <th scope="col" colspan="2">Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of [1,1,1,1,1]">
+          <th scope="row">{{calDate| date:'fullDate'}}</th>
+          <td>None</td>
+          <td colspan="2">Lorem ipsum dolor sit amet consectetur,!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="display=false" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+
+<!-- Delete Modal  -->
+<p-dialog [(visible)]="displayDelete" [draggable]="false" [modal]="true" [blockScroll]="true" [closeOnEscape]="false"  [style]="{width: '50vw'}">
+  <ng-template pTemplate="header">
+     Delete lead
+  </ng-template>
+  <p-messages severity="error" [closable]="false">
+    <ng-template pTemplate>
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eaque facere officiis velit recusandae. Earum provident quibusdam officia natus. Voluptate adipisci animi repellendus cum minima aspernatur recusandae perspiciatis vero laudantium?
+    </ng-template>
+  </p-messages>
+  <ng-template pTemplate="footer">
+    <p-button (click)="displayDelete=false" label="Ok" styleClass="p-button-danger p-button-text"></p-button>
+    <p-button (click)="displayDelete=false" label="Cancel" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+

@@ -1,0 +1,78 @@
+<main>
+  <div class="row">
+    <div class="col-md-6">
+      <h4 class="section-title m-0">Add a lead</h4>
+    </div>
+    <div class="col-md-6 text-end">
+      <button pButton pRipple type="button" label="cancel" icon="pi pi-arrow-left" class="p-button-sm" iconPos="left"
+        routerLink="/leads">
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 py-3 mx-auto accordion-container">
+      <p-accordion [multiple]="true">
+        <p-accordionTab header="Customer details" [selected]="true">
+          <div class="input-group">
+            <label for="">Title</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="Title">
+          </div>
+          <div class="input-group">
+            <label for="">First Name</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="First name">
+          </div>
+          <div class="input-group">
+            <label for="">Last Name</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="last name">
+          </div>
+          <hr>
+          <div class="input-group">
+            <label for="">Contact Number</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="Conatct">
+          </div>
+          <div class="input-group">
+            <label for="">Email</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="email">
+          </div>
+          <hr>
+          <div class="input-group">
+            <label for="">Job</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="Job">
+          </div>
+          <div class="input-group">
+            <label for="">Job Type</label>
+            <p-dropdown [options]="[{type:'Private'},{type: 'Government'}]" class="p-inputtext-sm" optionLabel="type" placeholder="Select sector">
+            </p-dropdown>
+          </div>
+        </p-accordionTab>
+        <p-accordionTab header="Sales details" [selected]="true">
+          <div class="input-group">
+            <label for="">Source</label>
+            <p-dropdown [options]="[{type:'Paper Ads'},{type:'Walk In'},{type: 'Social Media'},{type:'Channel Partner'},]" class="p-inputtext-sm" optionLabel="type">
+            </p-dropdown>
+          </div>
+          <div class="input-group">
+            <label for="">Channel Partner</label>
+            <p-dropdown [options]="[{type:'Property LLC'},{type:'Rahega Firms'}]" class="p-inputtext-sm" optionLabel="type">
+            </p-dropdown>
+          </div>
+          <div class="input-group">
+            <label for="">Associated Sales Officer</label>
+            <p-dropdown [options]="[{type:'Auto assign'},{type:'Walk In'},{type: 'Social Media'},{type:'Channel Partner'},]" class="p-inputtext-sm" optionLabel="type">
+            </p-dropdown>
+          </div>
+          <hr>
+          <div class="input-group">
+            <label for="">Remarks</label>
+            <textarea [rows]="5" [cols]="60" pInputTextarea [autoResize]="true"></textarea>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+    <div class="col-md-12 text-center">
+      <hr>
+      <button pButton pRipple type="button" label="Save" class="p-button-sm" routerLink="/properties">
+      </button>
+    </div>
+  </div>
+</main>
