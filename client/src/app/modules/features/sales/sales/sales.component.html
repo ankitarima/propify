@@ -1,0 +1,70 @@
+<main>
+  <div class="table-wrapper">
+    <h4 class="section-title m-0 p-0">All Sales</h4>
+    <div class="filter d-flex flex-row justify-content-between">
+      <div class="search">
+        <div class="form-control">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
+            <input type="text" pInputText class="p-inputtext-sm" placeholder="Search">
+          </div>
+        </div>
+      </div>
+      <div class="sort-export">
+        <div class="d-flex flex-row justify-content-between">
+          <p-dropdown [options]="sort" class="p-inputtext-sm" optionLabel="name"></p-dropdown>
+          <span class="px-1"></span>
+          <button pButton pRipple type="button" label="Export" icon="pi pi-file-excel" class="p-button-sm"
+            iconPos="left"></button>
+          <span class="px-1"></span>
+          <button pButton pRipple type="button" label="Add Sale" icon="pi pi-plus" class="p-button-sm"
+            iconPos="left" routerLink="add">
+          </button>
+        </div>
+      </div>
+    </div>
+    <p-table [value]="customers" responsiveLayout="scroll"  [scrollable]="true">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Id</th>
+          <th>Country</th>
+          <th>Status</th>
+          <th>Activity</th>
+          <th>Representative</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-customer>
+        <tr>
+          <td>{{customer.name}}</td>
+          <td>{{customer.id}}</td>
+          <td>{{customer.country.name}}</td>
+          <td>{{customer.status}}</td>
+          <td>{{customer.activity}}</td>
+          <td>{{customer.representative.name}}</td>
+          <td>
+            <p-splitButton label="Details" styleClass="p-button-outlined p-button-sm" (onClick)="details()" [model]="items"></p-splitButton>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-paginator [rows]="10" [totalRecords]="100" [pageLinkSize]="5"></p-paginator>
+  </div>
+</main>
+
+
+<!-- Status Update Modal -->
+<p-dialog [(visible)]="display" [draggable]="false" [modal]="true" [blockScroll]="true" [closeOnEscape]="false"  [style]="{width: '50vw'}">
+  <ng-template pTemplate="header">
+     Change Status
+  </ng-template>
+  <p-messages severity="error" [closable]="false">
+    <ng-template pTemplate>
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eaque facere officiis velit recusandae. Earum provident quibusdam officia natus. Voluptate adipisci animi repellendus cum minima aspernatur recusandae perspiciatis vero laudantium?
+    </ng-template>
+  </p-messages>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="display=false" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

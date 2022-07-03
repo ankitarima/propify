@@ -1,0 +1,190 @@
+<main>
+  <div class="row">
+    <div class="col-md-6">
+      <h4 class="section-title m-0">Add sale</h4>
+    </div>
+    <div class="col-md-6 text-end">
+      <button pButton pRipple type="button" label="cancel" icon="pi pi-arrow-left" class="p-button-sm" iconPos="left"
+        routerLink="/sales">
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 py-3 mx-auto accordion-container">
+      <p-accordion [multiple]="true">
+        <p-accordionTab header="Customer details" [selected]="true">
+          <div class="input-group">
+            <label for="">Title</label>
+            <p-dropdown [options]="[{type:'Ankit Arima'},{type: 'Master Arima'}]" [filter]="true" class="p-inputtext-sm"
+              optionLabel="type">
+            </p-dropdown>
+          </div>
+          <div class="input-group">
+            <label for=""></label>
+            <div class="text-group">
+              <small class="text-start mb-2">If not able to find customer, you can add new customer. <a
+                [routerLink]="'/customers/add'">Add customer</a></small>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="">First Name</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="First name">
+          </div>
+          <div class="input-group">
+            <label for="">Last Name</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="last name">
+          </div>
+          <hr>
+          <div class="input-group">
+            <label for="">Primary Contact Number</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="Primary Conatct">
+          </div>
+          <div class="input-group">
+            <label for="">Secondory Conatct Number</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="Secondary contact">
+          </div>
+          <div class="input-group">
+            <label for="">Primary Email</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="Primary email">
+          </div>
+          <div class="input-group">
+            <label for="">Secondary Email</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="Secondary email">
+          </div>
+          <hr>
+          <div class="input-group">
+            <label for="">
+              <p-dropdown [options]="[{type:'AAdhar Card'},{type: 'Driving Liscence'}]" class="p-inputtext-sm"
+                optionLabel="type">
+              </p-dropdown>
+            </label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="">
+          </div>
+          <div class="input-group">
+            <label for="">PAN Number</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="">
+          </div>
+        </p-accordionTab>
+        <p-accordionTab header="Property details" [selected]="true">
+          <div class="input-group">
+            <label for="">Property</label>
+            <p-dropdown [options]="[{type:'PC0001'},{type: 'PC0002'},{type: 'PC0003'},{type: 'PC0004'}]" [filter]="true"
+              class="p-inputtext-sm" placeholder="Select property" optionLabel="type">
+            </p-dropdown>
+          </div>
+          <div>
+            <hr>
+            <div class="input-group">
+              <label for="">Property Name</label>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="Property name">
+            </div>
+            <div class="input-group">
+              <label for="">Property Type</label>
+              <div class="text-group">
+                <p class="m-o text-start">Plot</p>
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="">BSP (base price)</label>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="3,500">
+            </div>
+            <div class="input-group">
+              <label for="">Floor</label>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="11">
+            </div>
+            <div class="input-group">
+              <label for="">Floor price</label>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="1,10,000">
+            </div>
+            <div class="input-group">
+              <label for="">Corner PLC</label>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="2,10,000">
+            </div>
+            <div class="input-group">
+              <label for="">Park PLC</label>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="3,10,000">
+            </div>
+            <div class="input-group">
+              <label for="">IMFS</label>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="3,10,000">
+            </div>
+            <div class="input-group">
+              <label for="">Discount percentage</label>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="10">
+            </div>
+            <div class="input-group">
+              <label for="">Discount Price</label>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="5,00,000">
+            </div>
+            <div class="input-group">
+              <label for="">Final Price</label>
+              <div class="text-group" *ngIf="!showFinalPriceInput" >
+                <input type="button" pButton  class="p-button-sm" value="Calculate final price"
+                (click)="calculatePrice()">
+              </div>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="5,00,000" *ngIf="showFinalPriceInput">
+            </div>
+          </div>
+        </p-accordionTab>
+        <p-accordionTab header="Payment details" [selected]="true">
+          <div class="input-group">
+            <label for="">Sales status</label>
+            <p-dropdown [options]="[{type:'Hold'},{type: 'Sold'}]"
+              class="p-inputtext-sm" placeholder="Select sales status" optionLabel="type">
+            </p-dropdown>
+          </div>
+          <hr>
+          <div>
+            <div class="input-group">
+              <label for="">Token Money</label>
+              <div class="radio-group">
+                <p-radioButton name="token_money" value="1" label="Yes" [(ngModel)]="selectedValue"></p-radioButton>
+                <p-radioButton name="token_money" value="0" label="No" [(ngModel)]="selectedValue"></p-radioButton>
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="">Token ammount</label>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="50,000">
+            </div>
+          </div>
+          <hr>
+          <div class="input-group">
+            <label for="">Remaining payable ammount</label>
+            <input type="text" class="p-inputtext-sm" pInputText placeholder="54,00,100">
+          </div>
+          <div class="input-group">
+            <label for="">Payment plan</label>
+            <p-dropdown [options]="[{type:'CLP/DLP'},{type: 'Downpayment'}]"
+              class="p-inputtext-sm" placeholder="Select payment plan" optionLabel="type">
+            </p-dropdown>
+          </div>
+          <div>
+            <div class="input-group">
+              <label for="">
+                Payment tenure
+                <small>(Number of EMI)</small>
+              </label>
+              <input type="text" class="p-inputtext-sm" pInputText placeholder="12">
+            </div>
+            <div class="input-group">
+              <label for="">EMI amount</label>
+              <div class="text-group">
+                <p class="text-start">21,000</p>
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="">EMI Date</label>
+              <p-calendar [(ngModel)]="calDate" class="p-inputtext-sm"></p-calendar>
+            </div>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+    <div class="col-md-12 text-center">
+      <hr>
+      <button pButton pRipple type="button" label="Generate Sale" class="p-button-sm" routerLink="/properties">
+
+      </button>
+    </div>
+  </div>
+</main>

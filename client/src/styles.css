@@ -1,3 +1,23 @@
+
+/* color class  */
+body,.bg-light{
+  background-color:  #f4f4f9 !important
+}
+
+.bg-blue{
+  background-color:  #3F51B5 !important;
+}
+.bg-white{
+  background-color:  #ffffff !important;
+}
+.white{
+  color: #ffffff !important;
+}
+
+/* cursor-pointer */
+.cursor-pointer{
+  cursor: pointer;
+}
 /* Header Nav Bar  */
 .top-nav-bar{
   border-bottom: 1px solid rgba(0,0,0,.125);
@@ -37,11 +57,46 @@
   min-width: 100px;
 }
 
+.card-conatiner{
+  background-color: white;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 4px;
+}
+
 /* Project Switcher  */
 .project-switcher .p-dropdown{
   border-radius: 0px !important;
   border: none;
   /* border-bottom: 1px solid rgba(0,0,0,.125); */
+}
+
+/* accordion styling  */
+.accordion-container .p-accordion-header-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+}
+.accordion-container .p-accordion .p-accordion-tab .p-accordion-toggle-icon{
+  color: #ffffff;
+}
+
+.accordion-container .p-accordion .p-accordion-header .p-accordion-header-link,
+.accordion-container .p-accordion p-accordiontab .p-accordion-content{
+  border-radius: 4px !important;
+}
+
+.accordion-container .p-accordion .p-accordion-header .p-accordion-header-link{
+  background-color: #3F51B5 !important;
+  border: 0px;
+  border-bottom-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.accordion-container .p-accordion .p-accordion-tab {
+  border-radius: 4px !important;
+  box-shadow: none;
+  border: 1px solid rgba(0,0,0,.125);
+  margin: 10px 0px;
 }
 
 /* Form Input  */
@@ -54,6 +109,7 @@
 
 .p-inputtext.p-inputtext-sm,
 .p-inputtext-sm .p-inputtext,
+.p-calendar .p-inputtext,
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item
 {
   padding: 5px 10px;
@@ -61,7 +117,7 @@
 
 /* Input Group  */
 
-.input-group{
+.input-group,.input-group-single{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -90,6 +146,29 @@
   top: 8px;
   left: 3px;
 }
+
+.text-group{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  width: 60%;
+}
+
+.radio-group{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  width: 60%;
+}
+
+.radio-group p-radioButton{
+  padding-right: 20px;
+}
+
 .input-group label{
   text-align: start;
   font-size: 15px;
@@ -101,17 +180,36 @@
   font-weight: 400;
 }
 
-.input-group .p-inputtext,.input-group .p-dropdown,.input-group .p-inputgroup-addon{
+.input-group .p-inputtext,
+.input-group .p-dropdown,
+.input-group .p-inputgroup-addon,
+.input-group .p-calendar .p-inputtext,
+.input-group-single .p-inputtext,
+.input-group-single .p-dropdown,
+.input-group-single .p-inputgroup-addon,
+.input-group-single .p-calendar .p-inputtext{
   border-radius: 5px !important;
 }
+
+
 .input-group .p-inputtext.p-inputtext-sm,
 .input-group .p-inputtext-sm .p-inputtext,
-.input-group p-dropdown
+.input-group p-dropdown,
+.input-group p-calendar
 {
   width: 60%;
 }
+.input-group-single .p-inputtext.p-inputtext-sm,
+.input-group-single .p-inputtext-sm .p-inputtext,
+.input-group-single p-dropdown,
+.input-group-single p-calendar
+{
+  width: 100%;
+}
 .input-group .p-dropdown,
-.input-group .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+.input-group .p-dropdown-panel .p-dropdown-items .p-dropdown-item,
+.input-group-single .p-dropdown,
+.input-group-single .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
   width: 100%;
 }
 

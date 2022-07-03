@@ -20,6 +20,11 @@ const routes: Routes = [
     loadChildren:()=> import('./modules/features/customers/customers.module').then(m=>m.CustomersModule),
   },
   {
+    path: 'sales',
+    component: LayoutComponent,
+    loadChildren:()=> import('./modules/features/sales/sales.module').then(m=>m.SalesModule),
+  },
+  {
     path: 'login',
     component: LoginComponent
   },

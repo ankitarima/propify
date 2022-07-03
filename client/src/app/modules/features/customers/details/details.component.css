@@ -3,12 +3,26 @@
   font-weight: 900;
   padding: 0px 10px;
 }
-.details-container .title{
+.details-container  p{
+  display: flex;
+  flex-direction: column;
+}
+.propert-detail-block .card{
+  padding: 20px 0px;
+}
+.propert-detail-block .card p{
+  padding: 0px;
+  margin: 0px;
+}
+.details-container .title,
+.propert-detail-block .title{
+  margin-bottom: 0px;
+}
+.details-container .detail,
+.propert-detail-block .detail{
   font-weight: 500;
 }
-.details-container .detail{
-  padding-left: 20px;
-}
+
 .print-btn, .add-payment-btn{
   color: green;
   padding-right: 3px;

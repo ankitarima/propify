@@ -35,6 +35,7 @@ import {FileUploadModule} from 'primeng/fileupload';
 import {MessagesModule} from 'primeng/messages';
 import {PaginatorModule} from 'primeng/paginator';
 import {TabViewModule} from 'primeng/tabview';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [],
@@ -75,7 +76,8 @@ import {TabViewModule} from 'primeng/tabview';
     FileUploadModule,
     MessagesModule,
     PaginatorModule,
-    TabViewModule
+    TabViewModule,
+    CalendarModule
   ],
 })
 export class SharedImportsModule {}
