@@ -67,7 +67,9 @@ body,.bg-light{
 .project-switcher .p-dropdown{
   border-radius: 0px !important;
   border: none;
-  /* border-bottom: 1px solid rgba(0,0,0,.125); */
+}
+.project-switcher .p-dropdown:not(.p-disabled).p-focus{
+  box-shadow: none !important;
 }
 
 /* accordion styling  */
@@ -268,5 +270,15 @@ body,.bg-light{
 .payments-tabs .p-tabview .p-tabview-panels{
   height: 330px;
   overflow-y: auto;
+}
+
+/* Setting  */
+.table-btn .edit{
+  color: #3F51B5;
+  cursor: pointer;
+}
+.table-btn .delete{
+  color: red;
+  cursor: pointer;
 }
 

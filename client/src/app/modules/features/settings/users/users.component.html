@@ -1,1 +1,98 @@
-<p>users works!</p>
+<main class="p-3">
+  <div class="filter d-flex flex-row justify-content-between">
+    <div class="search">
+      <div class="form-control">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
+          <input type="text" pInputText class="p-inputtext-sm" placeholder="Search">
+        </div>
+      </div>
+    </div>
+    <div class="sort-export">
+      <div class="d-flex flex-row justify-content-between">
+        <button pButton pRipple type="button" label="Add user" icon="pi pi-plus" class="p-button-sm"
+          iconPos="left" (click)="addUser()">
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive mt-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Role</th>
+          <th scope="col" class="text-center">Online</th>
+          <th scope="col" class="text-end">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of [1,2,3,4,5]">
+          <th scope="row">{{item}}</th>
+          <td>Ankit Kumar Sharma</td>
+          <td>example@example.example</td>
+          <td>data entry</td>
+          <td style="color: green;" class="text-center"><i class="pi pi-check"></i></td>
+          <td class="text-end table-btn">
+            <span class="edit" (click)="editUser()">edit</span>
+            <span class="px-1">|</span>
+            <span class="delete" (click)="deleteUser()">delete</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<!-- Status Update Modal -->
+<p-dialog [(visible)]="displayUserform" [draggable]="false" [modal]="true" [blockScroll]="true" [closeOnEscape]="false"  [style]="{width: '50vw'}">
+  <ng-template pTemplate="header">
+     Add New User
+  </ng-template>
+  <div class="p-3">
+    <div class="input-group">
+      <label for="">First Name</label>
+      <input type="text" class="p-inputtext-sm" pInputText placeholder="First name">
+    </div>
+    <div class="input-group">
+      <label for="">Last Name</label>
+      <input type="text" class="p-inputtext-sm" pInputText placeholder="name">
+    </div>
+    <div class="input-group">
+      <label for="">Email</label>
+      <input type="email" class="p-inputtext-sm" pInputText placeholder="email">
+    </div>
+    <div class="input-group">
+      <label for="">Role</label>
+      <p-dropdown [options]="[{type:'Manager'},{type: 'Sales'},{type: 'Leads'}]"
+      class="p-inputtext-sm" placeholder="Select status" optionLabel="type">
+    </p-dropdown>
+    </div>
+    <div class="input-group">
+      <label for="">Password</label>
+      <input type="password" class="p-inputtext-sm" pInputText>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button (click)="displayUserform=false" label="cancel" styleClass="p-button-text"></p-button>
+    <button pButton pRipple type="button" label="save"class="p-button-sm"> </button>
+  </ng-template>
+</p-dialog>
+
+<!-- Delete Modal  -->
+<p-dialog [(visible)]="displayDelete" [draggable]="false" [modal]="true" [blockScroll]="true" [closeOnEscape]="false"  [style]="{width: '50vw'}">
+  <ng-template pTemplate="header">
+     Delete lead
+  </ng-template>
+  <p-messages severity="error" [closable]="false">
+    <ng-template pTemplate>
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eaque facere officiis velit recusandae. Earum provident quibusdam officia natus. Voluptate adipisci animi repellendus cum minima aspernatur recusandae perspiciatis vero laudantium?
+    </ng-template>
+  </p-messages>
+  <ng-template pTemplate="footer">
+    <p-button (click)="displayDelete=false" label="Delete" styleClass="p-button-danger p-button-text"></p-button>
+    <p-button (click)="displayDelete=false" label="Cancel" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
